@@ -3,7 +3,19 @@
 - npx create-react-app netflix-gpt
 - configure TailwindCSS
 - Header
+- Routing of App
 - Login form
+- Sign Up form
+- Form Validation  (regex - regular expression)
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp user account
+- Implement SignIn user API
+- Created Redux Store with userSlice
+- Implemented SignOut
+- Update Profile
+- Fetch from TMDB Movies API
 
 # Features 
 
