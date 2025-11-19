@@ -3,16 +3,14 @@ import { useRef, useState } from "react";
 import { checkValidData } from '../utils/validate';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USER_AVATAR } from '../utils/constants';
 
 const Login = () => {
 
   const [isSignInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -41,7 +39,7 @@ const Login = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current.value, photoURL: "https://imgs.search.brave.com/sO_XFDPZeTpy3tvZP0sGxpW88D3lLWXdmcPcEVDX-dQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9jdXRlLWFuaW1l/LWJveS13YWxscGFw/ZXJfNzc2ODk0LTEx/MTA3OS5qcGc_c2Vt/dD1haXNfaHlicmlk/Jnc9NzQwJnE9ODA"
+            displayName: name.current.value, photoURL: USER_AVATAR
           }).then(() => {
             // Profile updated!
             const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -51,12 +49,11 @@ const Login = () => {
               displayName: displayName,
               photoURL: photoURL
             }))
-            navigate("/browse");
           }).catch((error) => {
             // An error occurred
             setErrorMessage(error.message);
           });
-          
+
         })
         .catch((error) => {
           if (error.code === "auth/email-already-in-use") {
@@ -70,7 +67,6 @@ const Login = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           setErrorMessage("User not Found! Try again");
@@ -80,7 +76,7 @@ const Login = () => {
 
   return (
     <div>
-      <Head/>
+      <Head />
 
       <form className="bg-black/70 absolute w-[380px] p-16 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-md space-y-6"
         onSubmit={(e) => e.preventDefault()}
