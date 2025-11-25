@@ -10,8 +10,12 @@ import useAiringTodayTVShows from '../hooks/useAiringTodayTVShows';
 import useOnTheAirTVShows from '../hooks/useOnTheAirTVShows';
 import usePopularTVShows from '../hooks/usePopularTVShows';
 import useTopRatedTVShows from '../hooks/useTopRatedTVShows';
+import { useSelector } from 'react-redux';
+import GptSearch from './GptSearch';
 
 const Browse = () => {
+
+  const showGptSearch = useSelector(store => store.gpt.showGptSearch);
 
   useNowPlayingMovies();
   useTopRatedMovies();
@@ -24,10 +28,19 @@ const Browse = () => {
   useTopRatedTVShows();
 
   return (
-    <div className="bg-black pb-12">
+    <div className="bg-black pb-12 min-h-screen">
       <Head />
-      <MainContainer />
-      <SecondaryContainer />
+      {
+        showGptSearch && <GptSearch/>
+      }
+      {
+        !showGptSearch && (
+          <>
+            <MainContainer />
+            <SecondaryContainer />
+          </>
+        )
+      }
     </div>
   )
 
