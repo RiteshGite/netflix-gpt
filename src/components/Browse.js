@@ -6,6 +6,10 @@ import useTopRatedMovies from '../hooks/useTopRatedMovies';
 import usePopularMovies from '../hooks/usePopularMovies';
 import useUpcomingMovies from '../hooks/useUpcomingMovies';
 import useTrendingMovies from '../hooks/useTrendingMovies';
+import useAiringTodayTVShows from '../hooks/useAiringTodayTVShows';
+import useOnTheAirTVShows from '../hooks/useOnTheAirTVShows';
+import usePopularTVShows from '../hooks/usePopularTVShows';
+import useTopRatedTVShows from '../hooks/useTopRatedTVShows';
 
 const Browse = () => {
 
@@ -14,6 +18,10 @@ const Browse = () => {
   usePopularMovies();
   useUpcomingMovies();
   useTrendingMovies();
+  useAiringTodayTVShows();
+  useOnTheAirTVShows();
+  usePopularTVShows();
+  useTopRatedTVShows();
 
   return (
     <div className="bg-black pb-12">
