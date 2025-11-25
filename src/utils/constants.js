@@ -2,6 +2,8 @@ export const LOGO = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/N
 
 export const USER_AVATAR = "https://imgs.search.brave.com/p8RQayDkvWb9n1uSCrbZGueE2L5-6pcWSykm32Erg5E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzkxLzg2/LzFiLzkxODYxYjc0/OTg0MTIyMWQ1MjEy/MmYwYzI5MzNkOGE2/LmpwZw";
 
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w780"
+
 export const API_OPTIONS = {
     method: 'GET',
     headers: {

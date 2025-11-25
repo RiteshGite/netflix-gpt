@@ -1,26 +1,28 @@
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 
-const VideoBackground = ({movieId}) => {
-
-  const trailerVideo = useSelector(store => store.movies?.trailerVideo);
+const VideoBackground = ({ movieId }) => {
+  const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
 
   useMovieTrailer(movieId);
 
-  if(!trailerVideo) return;
+  if (!trailerVideo) return null;
 
   return (
-    <div>
+    <div className="relative w-full h-screen">
       <iframe
-        className="w-full aspect-video"
-        src={`https://www.youtube.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0&loop=1&playlist=${trailerVideo?.key}`}
-        title="YouTube Trailer"
+        src={`https://www.youtube-nocookie.com/embed/${trailerVideo?.key}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&showinfo=0&rel=0&loop=1&playlist=${trailerVideo?.key}`}
+        className="absolute top-1/2 left-1/2 w-[120%] h-[130%] -translate-x-1/2 -translate-y-[50%]"
+        style={{
+          pointerEvents: "none",
+        }}
+        frameBorder="0"
         allow="autoplay; encrypted-media"
         allowFullScreen
+        title="video"
       ></iframe>
     </div>
+  );
+};
 
-  )
-}
-
-export default VideoBackground
+export default VideoBackground;

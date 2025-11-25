@@ -29,6 +29,12 @@
 - update store with trailer video data
 - Embedded the youtube video and make it autoplay and mute
 - Tailwind classes to make Main container look awesome
+- Build Secondary Container
+- Build Movie List 
+- Build Movie Card
+- TMDB image CDN URL
+- Made the Browse page amazing with tailwind css
+- builded multiple custom hooks to fetch and store the movieData into redux store
 
 # Features 
 
