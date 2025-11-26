@@ -7,6 +7,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice';
 import { LOGO } from "../utils/constants";
 import { toggleShowGPTSearch } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants"; 
+import { changeLanguage } from "../utils/configSlice";
 
 const Head = () => {
 
@@ -53,6 +55,10 @@ const Head = () => {
     dispatch(toggleShowGPTSearch());
   }
 
+  const handleLangChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  }
+
   return (
     <div className='absolute w-full px-8 py-6 flex justify-between items-center z-10 bg-gradient-to-b from-black'>
       <img
@@ -60,10 +66,25 @@ const Head = () => {
         src={LOGO}
         alt='logo'
       />
+      
       {user && <div className='flex gap-6 justify-center items-center'>
+        {
+          showGptSearch && (
+            <select
+              className="bg-zinc-700 text-white px-4 py-2 rounded-lg cursor-pointer font-semibold"
+              onChange={handleLangChange}
+            >
+              {
+                SUPPORTED_LANGUAGES.map(lang => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)
+              }
+            </select>
+          )
+        }
+
+
         <button className="text-white font-semibold bg-purple-700 rounded-lg px-3 py-2 scale-100 hover:scale-105 transition"
         onClick={handleGptSearchClick}
-        >{showGptSearch ? "Browse" : "GPT Search"}</button>
+        >{showGptSearch ? "Home" : "GPT Search"}</button>
         <img
           className='w-10 h-10 rounded-lg'
           src={user?.photoURL}

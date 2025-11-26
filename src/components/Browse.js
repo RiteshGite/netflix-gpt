@@ -31,16 +31,14 @@ const Browse = () => {
     <div className="bg-black pb-12 min-h-screen">
       <Head />
       {
-        showGptSearch && <GptSearch/>
-      }
-      {
-        !showGptSearch && (
+        showGptSearch ? <GptSearch /> : (
           <>
             <MainContainer />
             <SecondaryContainer />
           </>
         )
       }
+      
     </div>
   )
 

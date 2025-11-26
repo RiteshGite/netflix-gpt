@@ -35,6 +35,9 @@
 - TMDB image CDN URL
 - Made the Browse page amazing with tailwind css
 - builded multiple custom hooks to fetch and store the movieData into redux store
+- GPT Search Page
+- GPT Search Bar
+- Multilingual Search Bar
 
 # Features 
 
