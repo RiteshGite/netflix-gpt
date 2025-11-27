@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../utils/constants";
 import { addOnTheAirTVShows } from "../utils/moviesSlice";
 
 const useOnTheAirTVShows = () => {
-    // Fetch Data from TMDB API and update the store
 
     const dispatch = useDispatch();
 

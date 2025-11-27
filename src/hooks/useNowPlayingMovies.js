@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
 
 const useNowPlayingMovies = () => {
-// Fetch Data from TMDB API and update the store
 
     const dispatch = useDispatch();
 

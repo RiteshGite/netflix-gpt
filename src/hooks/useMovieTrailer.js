@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addTrailerVideo } from "../utils/moviesSlice";
 
 const useMovieTrailer = (movieId) => {
-    //fetch trailer video && updating the store with trailer video data
+    
     const dispatch = useDispatch();
 
     useEffect(() => {

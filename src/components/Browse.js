@@ -12,8 +12,11 @@ import usePopularTVShows from '../hooks/usePopularTVShows';
 import useTopRatedTVShows from '../hooks/useTopRatedTVShows';
 import { useSelector } from 'react-redux';
 import GptSearch from './GptSearch';
+import ShimmerBrowse from './ShimmerBrowse';
 
 const Browse = () => {
+
+  const movies = useSelector(store => store.movies);
 
   const showGptSearch = useSelector(store => store.gpt.showGptSearch);
 
@@ -27,8 +30,10 @@ const Browse = () => {
   usePopularTVShows();
   useTopRatedTVShows();
 
+  if (!movies.nowPlayingMovies && !movies.trailerVideo) return <ShimmerBrowse/>
+
   return (
-    <div className="bg-black pb-12 min-h-screen">
+    <div className="bg-black min-h-screen">
       <Head />
       {
         showGptSearch ? <GptSearch /> : (

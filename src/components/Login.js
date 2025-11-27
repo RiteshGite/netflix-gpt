@@ -124,14 +124,11 @@ const Login = () => {
           </span>
         </p>
       </form>
-
-
       <img
         src={BACKGROUND_IMG}
         className='w-screen h-screen'
         alt='background'
       />
-
     </div>
   )
 }

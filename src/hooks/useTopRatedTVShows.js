@@ -4,7 +4,6 @@ import { API_OPTIONS } from "../utils/constants";
 import { addTopRatedTVShows } from "../utils/moviesSlice";
 
 const useTopRatedTVShows = () => {
-    // Fetch Data from TMDB API and update the store
 
     const dispatch = useDispatch();
 

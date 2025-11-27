@@ -20,9 +20,7 @@ const Head = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in or signed up
         const { uid, email, displayName, photoURL } = user;
-
         dispatch(addUser({
           uid: uid,
           email: email,
@@ -31,13 +29,10 @@ const Head = () => {
         }));
         navigate("/browse")
       } else {
-        // User is signed out
         dispatch(removeUser());
         navigate("/")
       }
     });
-
-    // unsubscribe when component is unmount
     return () => unsubscribe();
   }, [])
 
@@ -51,7 +46,6 @@ const Head = () => {
   }
 
   const handleGptSearchClick = () => {
-    // Toggle GPT Search
     dispatch(toggleShowGPTSearch());
   }
 
@@ -60,7 +54,7 @@ const Head = () => {
   }
 
   return (
-    <div className='absolute w-full px-8 py-6 flex justify-between items-center z-10 bg-gradient-to-b from-black'>
+    <div className='fixed w-full px-8 py-6 flex justify-between items-center z-50 bg-gradient-to-b from-black'>
       <img
         className='w-44'
         src={LOGO}
