@@ -1,14 +1,16 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addAiringTodayTVShows} from "../utils/moviesSlice";
 
 const useAiringTodayTVShows = () => {
 
+    const airingTodayTVShows = useSelector(store => store.movies.airingTodayTVShows)
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getAiringTodayTVShows();
+        !airingTodayTVShows && getAiringTodayTVShows();
     }, []);
 
     const getAiringTodayTVShows = async () => {
