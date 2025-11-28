@@ -38,6 +38,10 @@
 - GPT Search Page
 - GPT Search Bar
 - Multilingual Search Bar
+- Gemini API movie search feature
+- env configuration
+- memoization of custom hooks
+- Responsive
 
 # Features 
 
