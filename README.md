@@ -3,7 +3,8 @@
 **An advanced, production-grade movie recommendation platform that fuses the cinematic aesthetics of Netflix with the cognitive power of Google Gemini AI.
 Built with React, Redux Toolkit, Firebase, Tailwind CSS, TMDB API, and Gemini AI, this application delivers a seamless, intelligent, and blazing-fast movie browsing experience.**
 
-# 🔥 Live Demo :  **👉 https://netflix-gpt-psi-flame.vercel.app**
+# 🔥 Live Demo :  
+**👉 https://netflix-gpt-psi-flame.vercel.app**
 
 # 🎯 What is NetflixGPT?
 
