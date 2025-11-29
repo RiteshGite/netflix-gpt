@@ -98,11 +98,14 @@ Gemini AI understands the intent → maps it to TMDB → fetches relevant movies
 
 # 🛠️ Tech Stack
 
-**Frontend          :** React.js, Redux Toolkit, React Router  
-**Styling           :** Tailwind CSS  
-**Backend & Auth    :** Firebase  
-**APIs              :** TMDB API, Gemini AI  
-**Tools             :** Git, NPM, VS Code, Vercel  
+<pre>
+Frontend       : React.js, Redux Toolkit, React Router
+Styling        : Tailwind CSS
+Backend & Auth : Firebase
+APIs           : TMDB API, Gemini AI
+Tools          : Git, NPM, VS Code, Vercel
+</pre>
+
 
 ---
 
