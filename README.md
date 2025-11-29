@@ -6,7 +6,7 @@ Built using React, Redux Toolkit, Firebase, Tailwind CSS, TMDB API, and Gemini A
 ---
 
 ## 🔥 Live Demo  
-👉 **netflix-gpt-psi-flame.vercel.app**
+👉 **https://netflix-gpt-psi-flame.vercel.app**
 
 ---
 
