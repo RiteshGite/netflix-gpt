@@ -2,10 +2,14 @@ import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 
 const GptMovieSuggestions = () => {
-  const { movieNames, movieResults } = useSelector(store => store.gpt);
+  const { movieNames, movieResults, loading } = useSelector(store => store.gpt);
 
-  if (!movieNames) return null;
-
+  if (loading) return (
+    <div className="flex justify-center items-center">
+      <img src="./assets/loader.gif" alt="loader" className="w-[50vh] h-[50vh] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2" />
+    </div>
+  );
+  if(!movieResults) return null;
   return (
     <div className="w-full 
                     max-w-[96vw] sm:max-w-3xl lg:max-w-4xl xl:max-w-6xl 

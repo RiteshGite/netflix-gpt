@@ -42,6 +42,7 @@
 - env configuration
 - memoization of custom hooks
 - Responsive
+- Loader and Shimmer UI
 
 # Features 
 

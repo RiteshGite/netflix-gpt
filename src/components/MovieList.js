@@ -1,8 +1,7 @@
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-    if (!movies) return null;
-
+    if (!movies || movies.length === 0) return null;
     return (
         <div className="mb-6 sm:mb-8 md:mb-10 
                         px-3 sm:px-6 md:px-8 lg:px-12 
@@ -20,9 +19,9 @@ const MovieList = ({ title, movies }) => {
             <div className="flex gap-2 sm:gap-3 md:gap-4 
                             overflow-x-scroll scrollbar-hide 
                             pb-3 sm:pb-4 pt-1">
-                {movies.map((movie) => (
-                    <MovieCard key={movie.id} posterPath={movie.poster_path} />
-                ))}
+                {movies.map((movie) =>{
+                    return <MovieCard key={movie?.id} posterPath={movie?.poster_path} />
+                })}
             </div>
         </div>
     );

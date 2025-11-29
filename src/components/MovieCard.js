@@ -1,8 +1,7 @@
 import { IMG_CDN_URL } from "../utils/constants";
 
 const MovieCard = ({ posterPath }) => {
-    if (!posterPath) return null;
-
+    
     return (
         <div className="
             w-28 xs:w-32 sm:w-36 md:w-40 lg:w-44 xl:w-52 
@@ -17,7 +16,7 @@ const MovieCard = ({ posterPath }) => {
                 className="w-full aspect-[2/3] object-cover 
                            transition-all duration-500
                            group-hover:brightness-110 group-hover:contrast-110"
-                src={IMG_CDN_URL + posterPath}
+                src={ posterPath ? IMG_CDN_URL + posterPath : "./assets/No_Image.webp"}
                 alt="movie"
             />
             <div className="

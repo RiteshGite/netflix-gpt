@@ -55,42 +55,53 @@ const Head = () => {
 
         {user && (
           <div className="flex flex-col sm:flex-row items-center justify-end gap-2 sm:gap-3 lg:gap-5 w-full md:w-auto">
-            <div className={`flex w-full items-center ${showGptSearch ? "justify-between" : "justify-end"} gap-2`}>
-              <button
-                className="flex-shrink-0 text-white font-medium sm:font-semibold 
-                           bg-purple-700 hover:bg-purple-600 
-                           rounded-md sm:rounded-lg 
-                           px-3 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2
-                           text-xs sm:text-sm md:text-base
-                           transition-all duration-300 
-                           hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
-                onClick={handleGptSearchClick}
-              >
-                {showGptSearch ? "Home" : "GPT Search"}
-              </button>
+            <div className={`flex w-full items-center ${showGptSearch ? "justify-between" : "justify-end"} gap-3 sm:gap-4 md:gap-5`}>
+              {showGptSearch && (
+                <select
+                  className="w-28 xs:w-32 sm:w-auto bg-gray-800/90 backdrop-blur-sm text-white 
+                             px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 
+                             rounded-md sm:rounded-lg 
+                             text-xs sm:text-sm md:text-base
+                             font-medium sm:font-semibold
+                             border border-white/20 cursor-pointer
+                             hover:bg-gray-700/90 hover:border-white/40
+                             focus:outline-none focus:ring-1 focus:ring-white/50
+                             transition-all duration-300
+                             hover:scale-105 shadow-lg hover:shadow-white/20"
+                  onChange={handleLangChange}
+                >
+                  {SUPPORTED_LANGUAGES.map(lang => (
+                    <option key={lang.identifier} value={lang.identifier}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              )}
 
-              <div className="flex items-center gap-2 sm:gap-3">
-                {showGptSearch && (
-                  <select
-                    className="w-28 xs:w-32 sm:w-auto bg-gray-800/90 backdrop-blur-sm text-white 
-                               px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 
-                               rounded-md sm:rounded-lg 
-                               text-xs sm:text-sm md:text-base
-                               font-medium sm:font-semibold
-                               border border-white/20 cursor-pointer
-                               hover:bg-gray-700/90 hover:border-white/40
-                               focus:outline-none focus:ring-1 focus:ring-white/50
-                               transition-all duration-300
-                               hover:scale-105 shadow-lg hover:shadow-white/20"
-                    onChange={handleLangChange}
-                  >
-                    {SUPPORTED_LANGUAGES.map(lang => (
-                      <option key={lang.identifier} value={lang.identifier}>
-                        {lang.name}
-                      </option>
-                    ))}
-                  </select>
-                )}
+              <div className="flex items-center gap-3 sm:gap-4 md:gap-5">
+                <button
+                  className="flex-shrink-0 text-white font-medium sm:font-semibold 
+                             bg-purple-700 hover:bg-purple-600 
+                             rounded-md sm:rounded-lg 
+                             px-3 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2
+                             text-xs sm:text-sm md:text-base
+                             transition-all duration-300 
+                             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
+                  onClick={handleGptSearchClick}
+                >
+                  {showGptSearch ? "Home" : "GPT Search"}
+                </button>
+
+                <img
+                  onClick={handleSignOut}
+                  className="hidden md:block w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 
+                             rounded object-cover 
+                             border-2 border-transparent hover:border-red-500 
+                             cursor-pointer transition-all duration-300 
+                             hover:scale-110 hover:shadow-lg hover:shadow-red-500/50"
+                  alt="user"
+                  src={USER_AVATAR}
+                />
 
                 <button
                   onClick={handleSignOut}
@@ -104,17 +115,6 @@ const Head = () => {
                 </button>
               </div>
             </div>
-
-            <img
-              onClick={handleSignOut}
-              className="hidden md:block w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 
-                         rounded object-cover 
-                         border-2 border-transparent hover:border-red-500 
-                         cursor-pointer transition-all duration-300 
-                         hover:scale-110 hover:shadow-lg hover:shadow-red-500/50"
-              alt="user"
-              src={USER_AVATAR}
-            />
           </div>
         )}
       </div>

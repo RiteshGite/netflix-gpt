@@ -1,8 +1,10 @@
+
 import { BACKGROUND_IMG } from "../utils/constants"
 import GptMovieSuggestions from "./GptMovieSuggestions";
 import GptSearchBar from "./GptSearchBar";
 
 const GptSearch = () => {
+
   return (
     <div className="fixed inset-0 overflow-x-hidden overflow-y-auto">
       <div
@@ -19,7 +21,8 @@ const GptSearch = () => {
                       pb-8 sm:pb-10
                      ">
         <GptSearchBar />
-        <GptMovieSuggestions />
+       <GptMovieSuggestions />
+        
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import gemini from "../utils/gemini";
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addMovieResults } from "../utils/gptSlice";
+import { addMovieResults, removeMovieResults } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
     const identifier = useSelector(store => store.config.lang);
@@ -18,6 +18,7 @@ const GptSearchBar = () => {
     }
 
     const handleGPTSearchClick = async () => {
+        dispatch(removeMovieResults());
         const query = searchText.current.value;
 
         const response = await gemini.models.generateContent({
